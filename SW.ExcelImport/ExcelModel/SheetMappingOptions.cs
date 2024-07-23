@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Data;
 namespace SW.ExcelImport
 {
@@ -22,5 +23,6 @@ namespace SW.ExcelImport
         public bool IndexAsId { get; set; }
         public int? ParenSheetIndex { get; set; }
         public bool Ignore { get; set; }
+        public IDictionary<string,string> CustomMap  { get; set; }
     }
 }

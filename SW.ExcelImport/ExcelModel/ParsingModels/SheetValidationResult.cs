@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace SW.ExcelImport
 {
@@ -34,12 +35,21 @@ namespace SW.ExcelImport
             Map = map;
             InvalidName = invalidName;
         }
-        
+        public SheetValidationResult(KeyValuePair<string,string>[] invalidMapPairs)
+        {
+            InvalidName = false;
+            InvalidHeaders = new int[] { };
+            Empty = false;
+            IgnoreFirstRow = true;
+            InvalidName = false;
+            InvalidCustomMap = invalidMapPairs;
+        }
         public bool Empty { get; private set; }
         public bool InvalidName { get; private set; }
         public int[] InvalidHeaders { get; private set; }
         public string[] Map { get; private set; }
         public bool IgnoreFirstRow { get; private set; }
+        public KeyValuePair<string,string>[] InvalidCustomMap { get; private set; }
         public bool SheetNotFound { get; set; }
         public bool HasErrors => InvalidName || Empty || InvalidHeaders.Length > 0 || SheetNotFound;
     }

@@ -91,5 +91,41 @@ namespace SW.ExcelImport.Services
 
         }
 
+        public SheetValidationResult ValidateCustom<T>(SheetOnTypeParseRequest request)
+        {
+            var sheet = request.Sheet;
+            if (sheet.Empty || sheet.EmptyData)
+                return SheetValidationResult.EmptySheet();
+
+            var invalidPairs = new List<KeyValuePair<string, string>>();
+            var customMap = request.MappingOptions.CustomMap;
+            foreach (var pair in customMap)
+            {
+                if(string.IsNullOrWhiteSpace(pair.Key) ||  string.IsNullOrWhiteSpace(pair.Value))
+                    invalidPairs.Add(pair);
+                else
+                {
+                    var propertyName = pair.Value.Transform(request.NamingStrategy);
+                    var propertyPath = PropertyPath.TryParse(typeof(T), propertyName);
+                    if (propertyPath == null) 
+                        invalidPairs.Add(pair);
+                    else
+                    {
+                        var enumerableType = GetEnumerableType(typeof(T), propertyName, request.NamingStrategy);
+                        if(enumerableType != null && ! AllowedEnumerableInSheet(enumerableType)  )
+                            invalidPairs.Add(pair);
+                    }
+                }
+            }
+            
+
+            
+
+            return new SheetValidationResult(invalidPairs.ToArray());
+            
+
+            
+
+        }
     }
 }

@@ -65,6 +65,42 @@ namespace SW.ExcelImport.Services
             return CurrentSheet;
         }
 
+        public async Task<ISheet> LoadSheet(string fileUrl, int sheetIndex, IDictionary<string, string> map)
+        {
+            url = fileUrl;
+            specificSheetIndex = sheetIndex;
+            tempLocalFilePath = await CopyFileLocal(fileUrl);
+            await using var tempStream = File.Open(tempLocalFilePath, FileMode.Open, FileAccess.Read);
+
+            using var tmpReader = ExcelReaderFactory.CreateReader(tempStream);
+
+            if (tmpReader.ResultsCount == 0) return null;
+
+            if (tmpReader.ResultsCount - 1 < specificSheetIndex) return null;
+
+            var sheets = new ISheet[tmpReader.ResultsCount];
+
+            var container = new SheetContainer(fileUrl, sheets);
+
+            for (var i = 0; i < tmpReader.ResultsCount; i++)
+            {
+                if (i == specificSheetIndex)
+                {
+
+                    tmpReader.Read();
+                    CurrentSheet = new Sheet(tmpReader, container, i, true);
+
+                }
+                else
+                {
+                    tmpReader.NextResult();
+                }
+
+            }
+
+            return CurrentSheet;
+        }
+
         public async Task<ISheetContainer> Load(string fileUrl, ICollection<SheetMappingOptions> sheetsOptions)
         {
             url = fileUrl;
@@ -183,6 +219,14 @@ namespace SW.ExcelImport.Services
             
             return localPath;
         }
-        
+        public void Reset()
+        {
+            specificSheetIndex = -1;
+            inSpecificSheet = false;
+            index = 0;
+            loaded = false;
+            stream?.Dispose();
+            reader?.Dispose();
+        }   
     }
 }
