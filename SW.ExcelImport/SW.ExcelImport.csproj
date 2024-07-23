@@ -20,7 +20,7 @@
     <PackageReference Include="SimplyWorks.ExportToExcel" Version="2.0.0" />
     <PackageReference Include="SimplyWorks.HttpExtensions" Version="2.0.1" />
     <PackageReference Include="SimplyWorks.PrimitiveTypes" Version="2.0.4" />
-    <PackageReference Include="ExcelDataReader" Version="3.6.0" />
+    <PackageReference Include="ExcelDataReader" Version="3.7.0" />
     
   </ItemGroup>
 
