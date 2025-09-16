@@ -28,7 +28,7 @@ jobs:
           projects: "**/*.csproj"
           test-projects: "**/*UnitTests/*.csproj"
           configuration: "Release"
-          dotnet-version: "3.1.x"
+          dotnet-version: "8.0.x"
           run-tests: 'false'
 
       - name: Pack and Push NuGet Package

@@ -14,6 +14,11 @@ namespace SW.ExcelImport.UnitTests
             throw new NotImplementedException();
         }
 
+        public Task<bool> DeleteAsync(string key)
+        {
+            throw new NotImplementedException();
+        }
+
         public string GetSignedUrl(string key, TimeSpan expiry)
         {
             throw new NotImplementedException();
