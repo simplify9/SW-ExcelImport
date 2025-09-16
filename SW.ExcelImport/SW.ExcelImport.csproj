@@ -6,8 +6,11 @@
      <PackageId>SimplyWorks.ExcelImport</PackageId>
     <Authors>Simplify9</Authors>
     <Product>SimplyWorks.ExcelImport</Product>
-    <PackageProjectUrl>https://github.com/simplify9/ExcelImport</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/simplify9/ExcelImport</RepositoryUrl>
+    <Description>A .NET library for reading, parsing, and validating Excel files with type-safe operations, data annotation validation, and Entity Framework integration. Supports batch processing with comprehensive error handling. See GitHub for full documentation and examples.</Description>
+    <PackageTags>excel;import;validation;parsing;entity-framework;batch-processing;data-annotations</PackageTags>
+    <PackageProjectUrl>https://github.com/simplify9/SW-ExcelImport</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/simplify9/SW-ExcelImport</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <Copyright>Simplify9</Copyright>
     <Company>Simplify9</Company>
     <PackageIcon>icon.png</PackageIcon>
@@ -26,6 +29,10 @@
 
   <ItemGroup>
     <None Include="../icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="../README.md">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

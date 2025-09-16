@@ -3,12 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <LangVersion>8.0</LangVersion>
-    <LangVersion>8.0</LangVersion>
      <PackageId>SimplyWorks.ExcelImport.Extensions</PackageId>
     <Authors>Simplify9</Authors>
     <Product>SimplyWorks.ExcelImport</Product>
-    <PackageProjectUrl>https://github.com/simplify9/ExcelImport</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/simplify9/ExcelImport</RepositoryUrl>
+    <Description>ASP.NET Core dependency injection extensions for SimplyWorks.ExcelImport. Provides easy service registration for Excel import functionality with Entity Framework integration. See GitHub for full documentation and examples.</Description>
+    <PackageTags>excel;import;aspnetcore;dependency-injection;entity-framework;extensions</PackageTags>
+    <PackageProjectUrl>https://github.com/simplify9/SW-ExcelImport</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/simplify9/SW-ExcelImport</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <Copyright>Simplify9</Copyright>
     <Company>Simplify9</Company>
     <PackageIcon>icon.png</PackageIcon>
@@ -26,6 +28,10 @@
 
   <ItemGroup>
     <None Include="../icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="../README.md">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
