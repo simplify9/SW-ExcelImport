@@ -19,10 +19,10 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-    <PackageReference Include="SimplyWorks.EfCoreExtensions" Version="8.1.0" />
-    <PackageReference Include="SimplyWorks.ExportToExcel" Version="8.0.0" />
-    <PackageReference Include="SimplyWorks.HttpExtensions" Version="8.1.0" />
-    <PackageReference Include="SimplyWorks.PrimitiveTypes" Version="8.1.2" />
+    <PackageReference Include="SimplyWorks.EfCoreExtensions" Version="8.1.7" />
+    <PackageReference Include="SimplyWorks.ExportToExcel" Version="8.0.4" />
+    <PackageReference Include="SimplyWorks.HttpExtensions" Version="8.1.6" />
+    <PackageReference Include="SimplyWorks.PrimitiveTypes" Version="8.1.8" />
     <PackageReference Include="ExcelDataReader" Version="3.7.0" />
     
   </ItemGroup>
